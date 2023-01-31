@@ -84,3 +84,61 @@ function pairElement(str){
 }
 
 pairElement("GCG");
+
+// January 31
+
+// Missing letters
+function fearNotLetter(str) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let i = alphabet.indexOf(str[0]);
+  let j = 0;
+  while(i < alphabet.length && j < str.length){
+    if(alphabet[i] === str[j]){
+      j += 1;
+      i += 1;
+    } 
+    else{
+      return alphabet[i];
+    }
+  }
+  return undefined;
+}
+fearNotLetter("abce");
+
+// Sorted Union
+function uniteUnique(...arr) {
+  let result = [];
+  
+  arr.flat().filter(num => {
+    if(!result.includes(num)){
+      result.push(num);
+    }
+  });
+  
+  return result;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+// Convert HTML Entities
+function convertHTML(str) {
+  let result = "";
+  for(let i = 0; i < str.length; i++){
+    if(str[i] === "&"){
+      result += "&amp;";
+    } else if(str[i] === "<"){
+      result += "&lt;";
+    } else if(str[i] === ">"){
+      result += "&gt;";
+    } else if(str[i] === "\""){
+      result += "&quot;";
+    } else if(str[i] === "\'"){
+      result += "&apos;";
+    } else{
+      result += str[i];
+    }
+  }
+  return result;
+}
+
+convertHTML("Dolce & Gabbana");
